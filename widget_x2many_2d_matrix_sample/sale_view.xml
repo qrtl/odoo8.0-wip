@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_order_form_widget_test" model="ir.ui.view">
+            <field name="name">sale.order.form.widget.test</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@string='Other Information']" position="after">
+                    <page string="Widget Test">
+                        <field name="sale_widget_ids" 
+                               widget="x2many_2d_matrix" 
+                                field_label_y_axis="employee_id"
+                               field_y_axis="employee_id" 
+                                field_label_x_axis="project_id"
+                               field_x_axis="project_id" 
+                               field_value="value2"/>
+                    </page>
+                    <page string="Product Widget">
+                        <group>
+                            <group>
+                                <field name="template_id" on_change="onchange_product_template(template_id)"/>
+                            </group>
+                            <group/>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="attribute_id"/>
+                            </group>
+                            <group>
+                                <field name="attribute_id1"/>
+                            </group>
+                        </group>
+                        <button name="product_widget" type="object" string="Add" class="oe_highlight"/>
+                        <field name="sale_product_widget_ids" 
+                               widget="x2many_2d_matrix" 
+                                field_label_y_axis="product_attr1_id"
+                               field_y_axis="product_attr1_id"
+                                field_label_x_axis="product_attr_id"
+                               field_x_axis="product_attr_id" 
+                               field_value="value2"/>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+        
+        <record id="view_sale_product_widget_form" model="ir.ui.view">
+            <field name="name">sale.product.widget.form</field>
+            <field name="model">sale.product.widget</field>
+            <field name="arch" type="xml">
+                <form string="Sales Order">
+                    <group>
+                        <group>
+                            <field name="sale_order_id"/> 
+                            <field name="product_attr1_id"/> 
+                        </group>
+                        <group>
+                            <field name="product_attr_id"/>
+                            <field name="value2"/>  
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+        
+        <record id="view_sale_product_widget_tree" model="ir.ui.view">
+            <field name="name">sale.product.widget.tree</field>
+            <field name="model">sale.product.widget</field>
+            <field name="arch" type="xml">
+                <tree string="Sales Order">
+                     <field name="product_attr1_id"/> 
+                     <field name="product_attr_id"/>
+                     <field name="value2"/>  
+                     <field name="sale_order_id"/> 
+                </tree>
+            </field>
+        </record>
+        
+        <record id="view_sale_order_line_widget_form" model="ir.ui.view">
+            <field name="name">sale.order.line.widget.form</field>
+            <field name="model">sale.order.line.widget</field>
+            <field name="arch" type="xml">
+                <form string="Sales Order">
+                    <group>
+                        <group>
+                            <field name="sale_id"/> 
+                            <field name="employee_id"/> 
+                        </group>
+                        <group>
+                            <field name="project_id"/>
+                            <field name="value2"/>  
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+        
+        <record id="view_sale_order_line_widget_tree" model="ir.ui.view">
+            <field name="name">sale.order.line.widget.tree</field>
+            <field name="model">sale.order.line.widget</field>
+            <field name="arch" type="xml">
+                <tree string="Sales Order">
+                     <field name="employee_id"/> 
+                     <field name="project_id"/>
+                     <field name="value2"/>  
+                     <field name="sale_id"/> 
+                </tree>
+            </field>
+        </record>
+    </data>
+</openerp>
