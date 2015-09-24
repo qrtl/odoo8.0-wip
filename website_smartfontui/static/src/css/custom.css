@@ -1,0 +1,12 @@
+@font-face{
+    font-family: '03SmartFontUI';
+    src: url(../fonts/03SmartFontUI.OTF);
+}
+
+h1,h2,h3,h4,h5,h6{ 
+    font-family: '03SmartFontUI';
+}
+
+body{
+    font-family: '03SmartFontUI';
+}
