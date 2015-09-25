@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+       <record id="crm_case_form_view_leads_z0924" model="ir.ui.view">
+            <field name="name">crm.case.form.view.leads.z0924</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_case_form_view_leads" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='description']" position="replace">
+                    <group>
+	                    <field name="terms"/>
+	                    <field name="description"/>
+                	</group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>

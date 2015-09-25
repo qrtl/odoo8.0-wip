@@ -19,6 +19,7 @@ from openerp.osv import fields, osv, expression
 from openerp import models, api
 from openerp.addons.connector_flow.task.abstract_task \
     import AbstractChunkReadTask
+from openerp.tools.translate import _
 
 
 class stock_move(osv.osv):
@@ -27,10 +28,13 @@ class stock_move(osv.osv):
     def get_move_data(self, cr, uid, picking, context=None):
         res = []
         picking_id = self.pool.get('stock.picking').search(cr, uid, [('name','=',picking)], context=context)[0]
-        move_ids = self.search(cr, uid, [('picking_id','=',picking_id)], context=context)
+        move_ids = self.search(cr, uid, [('picking_id','=',picking_id),('state','=','assigned')], context=context)
         if move_ids:
-            res = move_ids
-        return res
+#             res = move_ids
+            return move_ids
+#         return res
+        else:
+            raise osv.except_osv(_('Error!'),_('There is no move records to be processed.'))
 
 
 class ReceiptImport(AbstractChunkReadTask):
