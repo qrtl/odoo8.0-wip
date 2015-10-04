@@ -29,6 +29,7 @@ Overview:
     'depends': ["crm"], 
     'data': [
         'view/crm_lead_view.xml',
+        'view/website_crm.xml',
     ],
     'installable': True,
     'application': False,

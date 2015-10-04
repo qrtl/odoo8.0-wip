@@ -39,7 +39,7 @@ class stock_move(osv.osv):
 
 class ReceiptImport(AbstractChunkReadTask):
     def read_chunk(self, config=None, chunk_data=None, async=True):
-        picking = chunk_data.get('Name')
+        picking = chunk_data.get('Reference')
         StockMove = self.session.env['stock.move']
         move_ids = StockMove.get_move_data(picking)
         StockMove.browse(move_ids).action_done()
